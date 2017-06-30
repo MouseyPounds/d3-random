@@ -1,0 +1,21 @@
+body {
+  background-color: #12110F;
+  color: #b0a068;
+}
+a:link {color: #b08060;}
+a:visited {color: #606040;}
+a:hover {color: #c0c0c0;}
+a:active {color: #ffffff;}
+h1, h2 {
+  color: #b0b088;
+}
+#debug { 
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: small;
+}
+.note {
+  font-style: italic;
+}
+.dev {
+  display: none;
+}

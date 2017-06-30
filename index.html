@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<link rel="stylesheet" type="text/css" href="./d3-random.css"/>
+
+<script src="./d3-random.js"></script>
+
+<title>D3 Random Build</title>
+</head>
+<body>
+<h1>D3 Random Build Generator (2.6.0)</h1>
+<form id='theForm'>Class:
+    <select id='theMenu'></select>
+    <br />
+    <input type='checkbox' id='useElective' name='useElective' value='useElective' />Use Elective Mode
+    <br />
+    <input type='checkbox' id='forcePrimary' name='forcePrimary' value='forcePrimary' />Guarantee build has a Primary skill
+    <br />
+    <input type='checkbox' id='wizExclusion' name='wizExclusion' value='wizExclusion' />Prevent build from having multiple Wizard armor skills
+    <br />
+    <input type='checkbox' id='allowNoRune' name='allowNoRune' value='allowNoRune' />Allow skills to have no rune
+    <br />
+    <button type="submit">Make Build</button>
+</form>
+
+<h2>Results</h2>
+
+<div id="results"></div>
+
+<h2 class="dev">Debug Log</h2>
+
+<div id="debug" class="dev"></div>
+</body>
