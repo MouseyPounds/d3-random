@@ -1,7 +1,11 @@
-// db: database of skill choices using the single-character
-// keys used by the Battle.net calculator
-// Base type is an array so it's easy to iterate; elements are
-// objects containing a collection of strings and arrays.
+/* d3-random.js
+ * https://mouseypounds.github.io/d3-random/
+ */
+
+/*jslint indent: 4, maxerr: 50, passfail: false, browser: true, regexp: true, plusplus: true */
+
+// db: database of skill choices using the single-character keys used by the Battle.net calculator
+// Base type is an array so it's easy to iterate; elements are objects containing a collection of strings and arrays.
 var db = [{
     'tag': 'barbarian',
         'passive': 'aZbYcXdWeVfUgThSiRj',
@@ -27,6 +31,12 @@ var db = [{
         'no_left': 'YXgRSjPhiQk',
         'only_one': 'hiQk',
 }, {
+    'tag': 'necromancer',
+        'passive': 'aZbYcXdWeVfUgThSiRjQ',
+        'active': ['abW', 'Zce', 'YXUi', 'dVhQ', 'fgS', 'TRjk'],
+        'no_left': '',
+        'only_one': '',
+}, {
     'tag': 'witch-doctor',
         'passive': 'aZbYcXdWeVfUgThSiRj',
         'active': ['abWS', 'Zceh', 'YXUi', 'dVj', 'fgRkl', 'TQP'],
@@ -38,7 +48,7 @@ var db = [{
         'active': ['abWU', 'ZceR', 'YXgQ', 'dViPl', 'fTSjO', 'hkmN'],
         'no_left': 'YXfTSjOh',
         'only_one': '',
-}, ];
+}];
 // en: US English text strings for skills, runes, etc.
 // object keyed by the 'tags' from the db array entries.
 // rurl is for the rune url identifier
@@ -162,7 +172,7 @@ var en = {
                     'rune': ['Lahar', 'Snow-Capped Mountain', 'Tectonic Rift', 'Glacier', 'Volcano'],
                     'rurl': 'dbeac',
             },
-        }, // end of 'active'
+        },
         'passive': {
             'a': 'Pound of Flesh',
                 'Z': 'Ruthless',
@@ -183,7 +193,7 @@ var en = {
                 'i': 'Earthen Might',
                 'R': 'Sword and Board',
                 'j': 'Rampage',
-        }, // end of 'passive'
+        },
     },
         'crusader': {
         'name': 'Crusader',
@@ -309,7 +319,7 @@ var en = {
                     'rune': ['Barrels of Spikes', 'Annihilate', 'Mine Field', 'Impactful Bombardment', 'Targeted'],
                     'rurl': 'abcde',
             },
-        }, // end of 'active' 
+        },
         'passive': {
             'a': 'Heavenly Strength',
                 'Z': 'Fervor',
@@ -329,7 +339,7 @@ var en = {
                 'S': 'Finery',
                 'i': 'Blunt',
                 'R': 'Towering Shield',
-        }, // end of 'passive'
+        },
     },
         'demon-hunter': {
         'name': 'Demon Hunter',
@@ -455,7 +465,7 @@ var en = {
                     'rune': ['Personal Mortar', 'Dark Heart', 'Side Cannons', 'Seethe', 'From the Shadows'],
                     'rurl': 'cbdea',
             },
-        }, // end of 'active' 
+        },
         'passive': {
             'a': 'Thrill of the Hunt',
                 'Z': 'Tactical Advantage',
@@ -476,7 +486,7 @@ var en = {
                 'i': 'Ambush',
                 'R': 'Awareness',
                 'j': 'Single Out',
-        }, // end of 'passive'
+        },
     },
         'monk': {
         'name': 'Monk',
@@ -592,7 +602,7 @@ var en = {
                     'rune': ['Desert Shroud', 'Ascendance', 'Soothing Mist', 'Insight', 'Inner Fire'],
                     'rurl': 'aebcd',
             },
-        }, // end of 'active' 
+        },
         'passive': {
             'a': 'Resolve',
                 'Z': 'Fleet Footed',
@@ -612,7 +622,140 @@ var en = {
                 'S': 'Unity',
                 'i': 'Momentum',
                 'R': 'Mythic Rhythm',
-        }, // end of 'passive'
+        },
+    },
+        'necromancer': {
+        'name': 'Necromancer',
+            'group': ['Primary', 'Secondary', 'Corpses', 'Reanimation', 'Curses', 'Blood &amp; Bone'],
+            'active': {
+            'a': {
+                'skill': 'Bone Spikes',
+                    'rune': ['Sudden Impact', 'Bone Pillars', 'Frost Spikes', 'Path of Bones', 'Blood Spikes'],
+                    'rurl': 'acdbe',
+            },
+                'Z': {
+                'skill': 'Bone Spear',
+                    'rune': ['Blighted Marrow', 'Teeth', 'Crystallization', 'Shatter', 'Blood Spear'],
+                    'rurl': 'ceabd',
+            },
+                'b': {
+                'skill': 'Grim Scythe',
+                    'rune': ['Execution', 'Dual Scythes', 'Cursed Scythe', 'Frost Scythe', 'Blood Scythe'],
+                    'rurl': 'bdeca',
+            },
+                'Y': {
+                'skill': 'Corpse Explosion',
+                    'rune': ['Bloody Mess', 'Close Quarters', 'Shrapnel', 'Dead Cold', 'Final Embrace'],
+                    'rurl': 'dcaeb',
+            },
+                'c': {
+                'skill': 'Skeletal Mage',
+                    'rune': ['Gift of Death', 'Contamination', 'Skeleton Archer', 'Singularity', 'Life Support'],
+                    'rurl': 'adebc',
+            },
+                'X': {
+                'skill': 'Corpse Lance',
+                    'rune': ['Shredding Splinters', 'Brittle Touch', 'Ricochet', 'Visceral Impact', 'Blood Lance'],
+                    'rurl': 'ebadc',
+            },
+                'd': {
+                'skill': 'Command Skeletons',
+                    'rune': ['Enforcer', 'Frenzy', 'Dark Mending', 'Freezing Grasp', 'Kill Command'],
+                    'rurl': 'aebcd',
+            },
+                'W': {
+                'skill': 'Siphon Blood',
+                    'rune': ['Blood Sucker', 'Suppress', 'Power Shift', 'Purity of Essence', 'Drain Life'],
+                    'rurl': 'eadbc',
+            },
+                'e': {
+                'skill': 'Death Nova',
+                    'rune': ['Unstable Compound', 'Tendril Noca', 'Blight', 'Bone Nova', 'Blood Nova'],
+                    'rurl': 'eadbc',
+            },
+                'V': {
+                'skill': 'Command Golem',
+                    'rune': ['Flesh Golem', 'Ice Golem', 'Bone Golem', 'Decay Golem', 'Blood Golem'],
+                    'rurl': 'deacb',
+            },
+                'f': {
+                'skill': 'Decrepify',
+                    'rune': ['Dizzying Curse', 'Enfeeblement', 'Opportunist', 'Wither', 'Borrowed Time'],
+                    'rurl': 'eabdc',
+            },
+                'U': {
+                'skill': 'Devour',
+                    'rune': ['Satiated', 'Ruthless', 'Devouring Aura', 'Voracious', 'Cannibalize'],
+                    'rurl': 'ebdca',
+            },
+                'g': {
+                'skill': 'Leech',
+                    'rune': ['Transmittable', 'Osmosis', 'Blood Flask', 'Sanguine End', 'Cursed Ground'],
+                    'rurl': 'baecd',
+            },
+                'T': {
+                'skill': 'Bone Armor',
+                    'rune': ['Vengeful Armaments', 'Dislocation', 'Limited Immunity', 'Harvest of Anguish', 'Thy Flesh Sustained'],
+                    'rurl': 'acbed',
+            },
+                'h': {
+                'skill': 'Army of the Dead',
+                    'rune': ['Blighted Grasp', 'Death Valley', 'Unconventional Warfare', 'Frozen Army', 'Dead Storm'],
+                    'rurl': 'adcbe',
+            },
+                'S': {
+                'skill': 'Frailty',
+                    'rune': ['Scent of Blood', 'Volatile Death', 'Aura of Frailty', 'Harvest Essence', 'Early Grave'],
+                    'rurl': 'dceba',
+            },
+                'i': {
+                'skill': 'Revive',
+                    'rune': ['Personal Army', 'Horrific Return', 'Purgatory', 'Recklessness', 'Oblation'],
+                    'rurl': 'ceadb',
+            },
+                'R': {
+                'skill': 'Bone Spirit',
+                    'rune': ['Astral Projection', 'Panic Attack', 'Poltergeist', 'Unfinished Business', 'Possession'],
+                    'rurl': 'ebcda',
+            },
+                'j': {
+                'skill': 'Blood Rush',
+                    'rune': ['Potency', 'Transfusion', 'Molting', 'Hemostasis', 'Metabolism'],
+                    'rurl': 'daebc',
+            },
+                'Q': {
+                'skill': 'Land of the Dead',
+                    'rune': ['Frozen Lands', 'Plaguelands', 'Shallow Graves', 'Invigoration', 'Land of Plenty'],
+                    'rurl': 'bcead',
+            },
+                'k': {
+                'skill': 'Simulacrum',
+                    'rune': ['Cursed Form', 'Reservoir', 'Self Sacrifice', 'Blood Debt', 'Blood and Bone'],
+                    'rurl': 'baecd',
+            },
+        },
+        'passive': {
+            'a': 'Life from Death',
+			'Z': 'Fueled by Death',
+			'b': 'Stand Alone',
+			'Y': 'Bone Prison',
+			'c': 'Swift Harvesting',
+			'X': 'Commander of the Risen Dead',
+			'd': 'Extended Servitude',
+			'W': 'Rigor Mortis',
+			'e': 'Overwhelming Essence',
+			'V': 'Dark Reaping',
+			'f': 'Spreading Malediction',
+			'U': 'Eternal Torment',
+			'g': 'Final Service',
+			'T': 'Grisly Tribute',
+			'h': 'Draw Life',
+			'S': 'Serration',
+			'i': 'Aberrant Animator',
+			'R': 'Blood for Blood',
+			'j': 'Blood is Power',
+			'Q': 'Rathma\'s Shield'
+        },
     },
         'witch-doctor': {
         'name': 'Witch Doctor',
@@ -733,28 +876,28 @@ var en = {
                     'rune': ['Bogadile', 'Zombie Piranhas', 'Piranhado', 'Wave of Mutilation', 'Frozen Piranhas'],
                     'rurl': 'abcde',
             },
-        }, // end of 'active' 
+        },
         'passive': {
             'a': 'Jungle Fortitude',
-                'Z': 'Circle of Life',
-                'b': 'Spiritual Attunement',
-                'Y': 'Gruesome Feast',
-                'c': 'Blood Ritual',
-                'X': 'Bad Medicine',
-                'd': 'Zombie Handler',
-                'W': 'Pierce the Veil',
-                'e': 'Spirit Vessel',
-                'V': 'Fetish Sycophants',
-                'f': 'Rush of Essence',
-                'U': 'Vision Quest',
-                'g': 'Fierce Loyalty',
-                'T': 'Grave Injustice',
-                'h': 'Tribal Rites',
-                'S': 'Confidence Ritual',
-                'i': 'Creeping Death',
-                'R': 'Swampland Attunement',
-                'j': 'Midnight Feast',
-        }, // end of 'passive'
+			'Z': 'Circle of Life',
+			'b': 'Spiritual Attunement',
+			'Y': 'Gruesome Feast',
+			'c': 'Blood Ritual',
+			'X': 'Bad Medicine',
+			'd': 'Zombie Handler',
+			'W': 'Pierce the Veil',
+			'e': 'Spirit Vessel',
+			'V': 'Fetish Sycophants',
+			'f': 'Rush of Essence',
+			'U': 'Vision Quest',
+			'g': 'Fierce Loyalty',
+			'T': 'Grave Injustice',
+			'h': 'Tribal Rites',
+			'S': 'Confidence Ritual',
+			'i': 'Creeping Death',
+			'R': 'Swampland Attunement',
+			'j': 'Midnight Feast',
+        },
     },
         'wizard': {
         'name': 'Wizard',
@@ -890,27 +1033,27 @@ var en = {
                     'rune': ['Supermassive', 'Absolute Zero', 'Event Horizon', 'Blazar', 'Spellsteal'],
                     'rurl': 'aebcd',
             },
-        }, // end of 'active' 
+        },
         'passive': {
             'a': 'Power Hungry',
-                'Z': 'Blur',
-                'b': 'Evocation',
-                'Y': 'Glass Cannon',
-                'c': 'Prodigy',
-                'X': 'Astral Presence',
-                'd': 'Illusionist',
-                'W': 'Cold Blooded',
-                'e': 'Conflagration',
-                'V': 'Paralysis',
-                'f': 'Galvanizing Ward',
-                'U': 'Temporal Flux',
-                'g': 'Dominance',
-                'T': 'Arcane Dynamo',
-                'h': 'Unstable Anomaly',
-                'S': 'Unwavering Will',
-                'i': 'Audacity',
-                'R': 'Elemental Exposure',
-        }, // end of 'passive'
+			'Z': 'Blur',
+			'b': 'Evocation',
+			'Y': 'Glass Cannon',
+			'c': 'Prodigy',
+			'X': 'Astral Presence',
+			'd': 'Illusionist',
+			'W': 'Cold Blooded',
+			'e': 'Conflagration',
+			'V': 'Paralysis',
+			'f': 'Galvanizing Ward',
+			'U': 'Temporal Flux',
+			'g': 'Dominance',
+			'T': 'Arcane Dynamo',
+			'h': 'Unstable Anomaly',
+			'S': 'Unwavering Will',
+			'i': 'Audacity',
+			'R': 'Elemental Exposure',
+        },
     },
         'paragon': [ 
             { 'category': 'Core',
